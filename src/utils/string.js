@@ -11,3 +11,8 @@ export const validURL = (str) => {
   ); // fragment locator
   return !!pattern.test(str);
 };
+
+export const formatNumber = (val) => {
+  const formatType = new Intl.NumberFormat("id-ID");
+  return formatType.format(val);
+};

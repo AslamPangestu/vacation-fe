@@ -52,14 +52,11 @@
 @import "utilities/api";
 // scss-docs-end import-stack
 
-body{
-    font-family: "Poppins", sans-serif;
-}
-
 header {
     border-bottom: 1px solid $primary-light;
     width: 100%;
     position: relative;
+    margin-bottom: 24px;
 
     .navbar {
         height: 80px;
