@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import "./assets/scss/index.scss";
 import reportWebVitals from "./reportWebVitals";
-import App from "./App";
+import Home from "pages/Home";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <Route path="/" component={Home}></Route>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

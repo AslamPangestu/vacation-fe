@@ -9,6 +9,8 @@ const Button = (props) => {
   if (props.size === "medium") classNames.push("btn-md");
   if (props.size === "large") classNames.push("btn-lg");
   if (props.color) classNames.push(`btn-${props.color}`);
+  if (props.elevated) classNames.push("btn-shadow");
+  if (props.block) classNames.push("btn-block");
 
   const className = classNames.join(" ");
 
@@ -81,6 +83,8 @@ Button.defaultProps = {
   type: "button",
   disabled: false,
   loading: false,
+  elevated: false,
+  block: false,
   size: "medium",
 };
 
@@ -96,6 +100,8 @@ Button.propTypes = {
   style: PropTypes.object,
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
+  elevated: PropTypes.bool,
+  block: PropTypes.bool,
   size: PropTypes.oneOf(["small", "medium", "large"]),
 };
 
