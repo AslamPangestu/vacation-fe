@@ -19,10 +19,10 @@ const Hero = (props) => {
   ];
   const bannerSize = { width: 500, height: 375.95 };
   const showMostPicked = () => {
-    // window.scrollBy({
-    //   top: props.refMostPicked.current.offsetTop - 30,
-    //   behavior: "smooth",
-    // });
+    window.scrollBy({
+      top: props.refMostPicked.current.offsetTop - 30,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -92,6 +92,10 @@ Hero.propTypes = {
   travelers: PropTypes.number,
   cities: PropTypes.number,
   treasures: PropTypes.number,
+  refMostPicked: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
 };
 
 export default Hero;

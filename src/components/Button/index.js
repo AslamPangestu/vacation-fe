@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { validURL } from "utils/string";
 
 const Button = (props) => {
-  const classNames = ["btn", props.className];
+  const classNames = [props.className];
   if (props.size === "small") classNames.push("btn-sm");
   if (props.size === "medium") classNames.push("btn-md");
   if (props.size === "large") classNames.push("btn-lg");

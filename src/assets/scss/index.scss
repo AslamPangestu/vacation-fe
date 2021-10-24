@@ -19,6 +19,7 @@
 @import "images";
 @import "containers";
 @import "grid";
+@import "grid-container";
 @import "tables";
 @import "forms";
 @import "buttons";
@@ -83,12 +84,16 @@ header {
     }
 }
 
+section{
+    margin-bottom: 70px;
+}
+
 .brand-text-icon {
     font-size: 26px;
     font-weight: 500;
     color: $primary;
+    text-decoration: none;
     &:hover{
         color: $primary;
-        text-decoration: none;
     }
 }
