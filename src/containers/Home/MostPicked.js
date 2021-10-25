@@ -44,6 +44,7 @@ const MostPicked = (props) => {
     </section>
   );
 };
+
 MostPicked.propTypes = {
   data: PropTypes.array,
   refs: PropTypes.oneOfType([
