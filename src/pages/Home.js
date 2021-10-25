@@ -1,6 +1,6 @@
 import { createRef, Component } from "react";
 
-import Header from "components/Header";
+import Layout from "containers/MainLayout";
 import Hero from "containers/Home/Hero";
 import MostPicked from "containers/Home/MostPicked";
 import Category from "containers/Home/Category";
@@ -225,14 +225,13 @@ export default class Home extends Component {
 
   render() {
     return (
-      <>
-        <Header {...this.props} />
+      <Layout {...this.props}>
         <Hero {...statistic} refMostPicked={this.refMostPicked} />
         <MostPicked refs={this.refMostPicked} data={mostPicked} />
         {categories.map((item, index) => (
           <Category title={item.name} data={item.data} key={index} />
         ))}
-      </>
+      </Layout>
     );
   }
 }
