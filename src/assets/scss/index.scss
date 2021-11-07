@@ -63,6 +63,7 @@ header {
     .navbar {
         height: 80px;
         ul.navbar-nav {
+            font-weight: 500;
             li.nav-item {
                 &.active {
                     a.nav-link {
