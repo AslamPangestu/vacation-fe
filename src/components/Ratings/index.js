@@ -3,36 +3,38 @@ import PropTypes from "prop-types";
 import "./index.scss";
 
 const Rating = (props) => {
-  const classNames = ["stars", props.className].join(" ");
-  const decimal = Number(props.value) % 1;
+  const { value, height, width, className } = props;
+  const classNames = ["stars", className].join(" ");
+  const decimal = Number(value) % 1;
+  console.log(decimal);
   const stars = [];
-  const maxLoop = props.value - decimal;
+  const maxLoop = value - decimal;
   let leftPos = 0;
 
   for (let index = 0; index < 5 && index < maxLoop; index++) {
-    leftPos += props.width;
+    leftPos += width;
     stars.push(
       <div
         className="star"
         key={`star-${index}`}
         style={{
-          left: index * props.width,
-          width: props.width,
-          height: props.height,
-          marginRight: props.spacing,
+          left: index * width,
+          width,
+          height,
         }}
       ></div>
     );
   }
 
-  if (decimal > 0 && props.value <= 5) {
+  if (decimal > 0 && value <= 5) {
     stars.push(
       <div
         className="star"
+        key="star-decimal"
         style={{
           left: leftPos,
-          height: props.height,
-          width: props.width - props.spacing,
+          height,
+          width: decimal * width,
         }}
       ></div>
     );
@@ -46,10 +48,9 @@ const Rating = (props) => {
         className="star placeholder"
         key={`star-placeholder-${index}`}
         style={{
-          left: index * props.width,
-          width: props.width,
-          height: props.height,
-          marginRight: props.spacing,
+          left: index * width,
+          width,
+          height,
         }}
       ></div>
     );
@@ -57,18 +58,18 @@ const Rating = (props) => {
 
   return (
     <>
-      <div className={classNames} style={{ height: props.height }}>
+      <div className={classNames} style={{ height }}>
         {starsPlaceholder}
         {stars}
       </div>
     </>
   );
 };
+
 Rating.propTypes = {
   value: PropTypes.number,
   height: PropTypes.number,
   width: PropTypes.number,
-  spacing: PropTypes.number,
   className: PropTypes.string,
 };
 

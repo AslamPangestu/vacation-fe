@@ -4,6 +4,7 @@ import Layout from "containers/MainLayout";
 import Hero from "containers/Home/Hero";
 import MostPicked from "containers/Home/MostPicked";
 import Category from "containers/Home/Category";
+import Testimonial from "containers/Home/Testimonial";
 
 const statistic = {
   travelers: 80490,
@@ -231,6 +232,7 @@ export default class Home extends Component {
         {categories.map((item, index) => (
           <Category title={item.name} data={item.data} key={index} />
         ))}
+        <Testimonial />
       </Layout>
     );
   }
