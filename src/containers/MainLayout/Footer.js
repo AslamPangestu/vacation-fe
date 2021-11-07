@@ -13,7 +13,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="col-auto me-5">
-            <h6 className="mt-2">For Beginners</h6>
+            <h6 className="mt-2 text-primary-dark">For Beginners</h6>
             <ul className="list-group list0group-flush">
               <li className="list-group-item">
                 <Button type="link" link="/register">
@@ -33,7 +33,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-auto me-5">
-            <h6 className="mt-2">Explore Us</h6>
+            <h6 className="mt-2 text-primary-dark">Explore Us</h6>
             <ul className="list-group list0group-flush">
               <li className="list-group-item">
                 <Button type="link" link="/about">
@@ -53,7 +53,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-auto">
-            <h6 className="mt-2">Connect Us</h6>
+            <h6 className="mt-2 text-primary-dark">Connect Us</h6>
             <ul className="list-group list0group-flush">
               <li className="list-group-item">
                 <Button type="link" link="mailto:support@vacation.id">

@@ -218,6 +218,18 @@ const categories = [
   },
 ];
 
+const testimony = {
+  _id: 0,
+  imageUrl:
+    "https://images.unsplash.com/photo-1506836467174-27f1042aa48c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
+  name: "Testimony Name",
+  content:
+    "What a great trip with my family and  I should try again next time soon",
+  familyName: "Family Name",
+  familyOccupation: "Family Occupation",
+  rate: 3.4,
+};
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -232,7 +244,7 @@ export default class Home extends Component {
         {categories.map((item, index) => (
           <Category title={item.name} data={item.data} key={index} />
         ))}
-        <Testimonial />
+        <Testimonial data={testimony} />
       </Layout>
     );
   }

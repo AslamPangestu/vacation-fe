@@ -13,15 +13,16 @@ import IcTreasure from "assets/img/icons/ic_treasure.svg";
 import { formatNumber } from "utils/string";
 
 const Hero = (props) => {
+  const { travelers, cities, treasures, refMostPicked } = props;
   const STATISTICS = [
-    { icon: IcTraveler, count: props.travelers, name: "travelers" },
-    { icon: IcCities, count: props.cities, name: "cities" },
-    { icon: IcTreasure, count: props.treasures, name: "treasures" },
+    { icon: IcTraveler, count: travelers, name: "travelers" },
+    { icon: IcCities, count: cities, name: "cities" },
+    { icon: IcTreasure, count: treasures, name: "treasures" },
   ];
   const bannerSize = { width: 500, height: 375.95 };
   const showMostPicked = () => {
     window.scrollBy({
-      top: props.refMostPicked.current.offsetTop - 30,
+      top: refMostPicked.current.offsetTop - 30,
       behavior: "smooth",
     });
   };
@@ -31,7 +32,7 @@ const Hero = (props) => {
       <section className="container pt-4">
         <div className="row pt-4">
           <div className="col pe-5">
-            <h1 className="font-weight-bold line-height-1 mb-3">
+            <h1 className="font-weight-bold text-primary-dark line-height-1 mb-3">
               Forget Busy Work, <br /> Start Next Vacation
             </h1>
             <p
@@ -48,6 +49,7 @@ const Hero = (props) => {
             >
               Show Me Now
             </Button>
+            {/* STATISTIC */}
             <div className="row mt-5">
               {STATISTICS.map((item, idx) => (
                 <div key={idx} className="col-4">
@@ -58,7 +60,9 @@ const Hero = (props) => {
                     alt={`${item.count} ${item.name}`}
                   />
                   <h6 className="mt-3">
-                    {formatNumber(item.count)}{" "}
+                    <span className="text-primary-dark">
+                      {formatNumber(item.count)}{" "}
+                    </span>
                     <span className="text-primary-light font-weight-light">
                       {item.name}
                     </span>
@@ -75,6 +79,8 @@ const Hero = (props) => {
               style={{
                 margin: "-30px 0 0 -30px",
                 zIndex: 1,
+                borderRadius: "100px 15px 15px 15px",
+                objectFit: "cover",
                 ...bannerSize,
               }}
             />

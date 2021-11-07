@@ -3,13 +3,13 @@ import Fade from "react-reveal/Fade";
 
 import Button from "components/Button";
 
-const MostPicked = (props) => {
+const MostPicked = ({ data, refs }) => {
   return (
-    <section ref={props.refs} className="container">
+    <section ref={refs} className="container">
       <Fade bottom>
-        <h4 className="mb-3">Most Picked</h4>
+        <h4 className="mb-3 text-primary-dark">Most Picked</h4>
         <div className="container-grid">
-          {props.data.map((item, index) => (
+          {data.map((item, index) => (
             <div
               key={index}
               className={`item column-4 ${index === 0 ? "row-2" : "row-1"}`}

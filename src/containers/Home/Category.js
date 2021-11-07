@@ -3,20 +3,20 @@ import Fade from "react-reveal/Fade";
 
 import Button from "components/Button";
 
-const Category = (props) => {
+const Category = ({ data, title }) => {
   return (
     <section className="container">
       <Fade bottom>
-        <h4 className="mb-3 font-weight-medium">{props.title}</h4>
+        <h4 className="mb-3 font-weight-medium text-primary-dark">{title}</h4>
         <div className="container-grid">
-          {props.data.length === 0 ? (
+          {data.length === 0 ? (
             <div className="row">
               <div className="col-auto align-items-center">
                 There is no destination at this category
               </div>
             </div>
           ) : (
-            props.data.map((item, index) => (
+            data.map((item, index) => (
               <div key={index} className="item column-3 row-1">
                 <Fade bottom delay={300 * index}>
                   <div className="card card-without-border">
@@ -56,6 +56,7 @@ const Category = (props) => {
     </section>
   );
 };
+
 Category.propTypes = {
   data: PropTypes.array,
   title: PropTypes.string,
