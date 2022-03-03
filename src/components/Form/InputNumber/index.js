@@ -22,10 +22,10 @@ const InputNumber = (props) => {
 
     if (isNumber(inputValue) && isValueBetween) {
       props.onChange({ target: { name, value: numericValue } });
-      const setupSuffix =
+      const displaySuffix =
         isSuffixPlural && numericValue > 1 ? `${suffix}s` : suffix;
-      const setupValue = `${prefix} ${numericValue} ${setupSuffix}`;
-      setInputValue(setupValue.trim());
+      const displayValue = `${prefix} ${numericValue} ${displaySuffix}`;
+      setInputValue(displayValue.trim());
     }
   };
 
