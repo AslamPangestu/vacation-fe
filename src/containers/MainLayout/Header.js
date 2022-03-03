@@ -12,7 +12,7 @@ const Header = (props) => {
     { label: "Agents", path: "/agents" },
   ];
   const getNavLinkClass = (path) => {
-    return props.location.pathname === path ? "active" : "";
+    return props.location.pathname === path ? " active" : "";
   };
 
   return (
@@ -26,7 +26,7 @@ const Header = (props) => {
                 {MENUS.map((item, idx) => (
                   <li
                     key={idx}
-                    className={`nav-item ${getNavLinkClass(item.path)}`}
+                    className={`nav-item${getNavLinkClass(item.path)}`}
                   >
                     <Button className="nav-link" type="link" link={item.path}>
                       {item.label}
