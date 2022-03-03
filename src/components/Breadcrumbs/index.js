@@ -20,7 +20,9 @@ const Breadcrumbs = ({ className, data }) => {
             }`}
           >
             {isEndOfBreadcrumb(index) ? (
-              item.title
+              <span>
+                <strong>{item.title}</strong>
+              </span>
             ) : (
               <Button type="link" link={item.link}>
                 {item.title}

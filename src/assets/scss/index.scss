@@ -135,3 +135,10 @@ section {
   width: 365px;
   height: 500px;
 }
+
+main {
+    p {
+      color: $gray-500;
+      font-weight: 300;
+    }
+  }

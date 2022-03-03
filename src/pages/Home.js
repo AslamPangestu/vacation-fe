@@ -1,4 +1,4 @@
-import { createRef, Component } from "react";
+import { useRef, useEffect } from "react";
 
 import Layout from "containers/MainLayout";
 import Hero from "containers/Home/Hero";
@@ -6,12 +6,14 @@ import MostPicked from "containers/Home/MostPicked";
 import Category from "containers/Home/Category";
 import Testimonial from "containers/Home/Testimonial";
 
+import { resetPagePosition } from "utils/page";
+
+//TODO: Temporary
 const statistic = {
   travelers: 80490,
   cities: 662,
   treasures: 1492,
 };
-
 const mostPicked = [
   {
     _id: 0,
@@ -64,7 +66,6 @@ const mostPicked = [
     country: "Negara",
   },
 ];
-
 const categories = [
   {
     id: 0,
@@ -217,7 +218,6 @@ const categories = [
     ],
   },
 ];
-
 const testimony = {
   _id: 0,
   imageUrl:
@@ -230,22 +230,23 @@ const testimony = {
   rate: 3.4,
 };
 
-export default class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.refMostPicked = createRef();
-  }
+const Home = (props) => {
+  const refMostPicked = useRef(null);
 
-  render() {
-    return (
-      <Layout {...this.props}>
-        <Hero {...statistic} refMostPicked={this.refMostPicked} />
-        <MostPicked refs={this.refMostPicked} data={mostPicked} />
-        {categories.map((item, index) => (
-          <Category title={item.name} data={item.data} key={index} />
-        ))}
-        <Testimonial data={testimony} />
-      </Layout>
-    );
-  }
-}
+  useEffect(() => {
+    resetPagePosition("Staycation | Home");
+  });
+
+  return (
+    <Layout {...props}>
+      <Hero {...statistic} refMostPicked={refMostPicked} />
+      <MostPicked refs={refMostPicked} data={mostPicked} />
+      {categories.map((item, index) => (
+        <Category title={item.name} data={item.data} key={index} />
+      ))}
+      <Testimonial data={testimony} />
+    </Layout>
+  );
+};
+
+export default Home;

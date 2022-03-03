@@ -7,7 +7,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
 import Home from "pages/Home";
-import DetailProduct from "pages/products/Detail";
+import PlaceDetail from "pages/places/Detail";
 
 import "./assets/scss/index.scss";
 
@@ -21,7 +21,7 @@ ReactDOM.render(
       <Router history={history} basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/" component={Home}></Route>
-          <Route exact path="/product" component={DetailProduct}></Route>
+          <Route exact path="/places/:id" component={PlaceDetail}></Route>
         </Switch>
       </Router>
     </div>
