@@ -6,7 +6,6 @@ const Rating = (props) => {
   const { value, height, width, className } = props;
   const classNames = ["stars", className].join(" ");
   const decimal = Number(value) % 1;
-  console.log(decimal);
   const stars = [];
   const maxLoop = value - decimal;
   let leftPos = 0;

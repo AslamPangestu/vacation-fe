@@ -1,16 +1,30 @@
 import React from "react";
+
+import { createBrowserHistory } from "history";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
+
+import reportWebVitals from "./reportWebVitals";
+
+import Home from "pages/Home";
+import DetailProduct from "pages/products/Detail";
 
 import "./assets/scss/index.scss";
-import reportWebVitals from "./reportWebVitals";
-import Home from "pages/Home";
+
+const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL,
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Route path="/" component={Home}></Route>
-    </Router>
+    <div className="app">
+      <Router history={history} basename={process.env.PUBLIC_URL}>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/product" component={DetailProduct}></Route>
+        </Switch>
+      </Router>
+    </div>
   </React.StrictMode>,
   document.getElementById("root")
 );

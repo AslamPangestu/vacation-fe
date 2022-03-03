@@ -1,12 +1,12 @@
 import { render } from "@testing-library/react";
-import Ratings from "./index";
+import Component from "./index";
 
 describe("Props", () => {
   it("Should have [value,width,height]", () => {
     const height = 40,
       width = 40;
     const { container } = render(
-      <Ratings width={width} height={height} value={3.6} />
+      <Component width={width} height={height} value={3.6} />
     );
     const stars = "div.stars";
     const starYellow = stars + " div.star:not(.placeholder)";
