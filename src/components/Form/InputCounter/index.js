@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./index.scss";
 import { isNumber } from "utils/validation";
 
-const InputNumber = (props) => {
+const InputCounter = (props) => {
   const { value, placeholder, name, min, max, prefix, suffix, isSuffixPlural } =
     props;
   const joinClassNames = ["input-number mb-3", props.className].join(" ");
@@ -56,6 +56,7 @@ const InputNumber = (props) => {
           name={name}
           pattern="[0-9]*"
           className="form-control"
+          readOnly
           placeholder={placeholder ? placeholder : "0"}
           value={String(inputValue)}
           onChange={onChange}
@@ -70,7 +71,7 @@ const InputNumber = (props) => {
   );
 };
 
-InputNumber.propTypes = {
+InputCounter.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
@@ -83,11 +84,11 @@ InputNumber.propTypes = {
   isSuffixPlural: PropTypes.bool,
 };
 
-InputNumber.defaultProps = {
+InputCounter.defaultProps = {
   min: 1,
   max: 1,
   prefix: "",
   suffix: "",
 };
 
-export default InputNumber;
+export default InputCounter;

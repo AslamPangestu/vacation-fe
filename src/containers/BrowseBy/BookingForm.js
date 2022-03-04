@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 import Button from "components/Button";
 import InputDate from "components/Form/InputDate";
-import InputNumber from "components/Form/InputNumber";
+import InputCounter from "components/Form/InputCounter";
 
 const BookingForm = ({ itemDetails, onStartBooking }) => {
   const history = useHistory();
@@ -68,7 +68,7 @@ const BookingForm = ({ itemDetails, onStartBooking }) => {
       </h5>
 
       <label htmlFor="duration">How long you will stay?</label>
-      <InputNumber
+      <InputCounter
         max={30}
         suffix="night"
         isSuffixPlural
