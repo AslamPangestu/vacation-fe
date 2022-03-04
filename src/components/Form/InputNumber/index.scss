@@ -15,12 +15,6 @@
       display: flex;
       justify-content: center;
       user-select: none;
-      &.minus {
-        background-color: $red;
-      }
-      &.plus {
-        background-color: $teal;
-      }
     }
 
     input.form-control {

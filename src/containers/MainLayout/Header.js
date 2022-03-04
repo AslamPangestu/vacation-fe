@@ -4,7 +4,7 @@ import Fade from "react-reveal/Fade";
 import Button from "components/Button";
 import Brand from "components/Brand";
 
-const Header = (props) => {
+const Header = ({ location }) => {
   const MENUS = [
     { label: "Home", path: "/" },
     { label: "Browse By", path: "/browse-by" },
@@ -12,7 +12,8 @@ const Header = (props) => {
     { label: "Agents", path: "/agents" },
   ];
   const getNavLinkClass = (path) => {
-    return props.location.pathname === path ? " active" : "";
+    const currentPath = `/${location.pathname.split("/")[1]}`;
+    return currentPath === path ? " active" : "";
   };
 
   return (

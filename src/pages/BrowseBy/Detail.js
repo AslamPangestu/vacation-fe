@@ -1,16 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Fade from "react-reveal/Fade";
 
 import Layout from "containers/MainLayout";
 import Category from "containers/Category";
 import Testimonial from "containers/Testimonial";
 
-import PageTitle from "containers/PlaceDetail/Title";
-import FeatureImages from "containers/PlaceDetail/FeatureImages";
-import Descriptions from "containers/PlaceDetail/Descriptions";
-import BookingForm from "containers/PlaceDetail/BookingForm";
+import PageTitle from "containers/BrowseBy/Title";
+import FeatureImages from "containers/BrowseBy/FeatureImages";
+import Descriptions from "containers/BrowseBy/Descriptions";
+import BookingForm from "containers/BrowseBy/BookingForm";
 
-import { resetPagePosition } from "utils/page";
+import useResetPage from "hooks/useResetPage";
+
 //TODO: Temporary
 const data = {
   _id: "asd1293uasdads1",
@@ -171,7 +172,7 @@ const data = {
   },
 };
 
-const PlaceDetail = (props) => {
+const DetailBrowseBy = (props) => {
   // eslint-disable-next-line no-unused-vars
   const [detailData, setDetailData] = useState(data);
   // eslint-disable-next-line no-unused-vars
@@ -180,10 +181,7 @@ const PlaceDetail = (props) => {
     { title: "Product", link: "/" },
     { title: "Detail", link: "" },
   ]);
-
-  useEffect(() => {
-    resetPagePosition(detailData.name);
-  });
+  useResetPage(detailData.name);
 
   const onStartBooking = () => {
     console.log("CALL");
@@ -218,4 +216,4 @@ const PlaceDetail = (props) => {
   );
 };
 
-export default PlaceDetail;
+export default DetailBrowseBy;

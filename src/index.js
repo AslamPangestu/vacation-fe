@@ -1,29 +1,16 @@
 import React from "react";
-
-import { createBrowserHistory } from "history";
 import ReactDOM from "react-dom";
-import { Router, Route, Switch } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
 
-import Home from "pages/Home";
-import PlaceDetail from "pages/places/Detail";
+import Router from "./router";
 
 import "./assets/scss/index.scss";
-
-const history = createBrowserHistory({
-  basename: process.env.PUBLIC_URL,
-});
 
 ReactDOM.render(
   <React.Fragment>
     <div className="app">
-      <Router history={history} basename={process.env.PUBLIC_URL}>
-        <Switch>
-          <Route exact path="/" component={Home}></Route>
-          <Route exact path="/places/:id" component={PlaceDetail}></Route>
-        </Switch>
-      </Router>
+      <Router />
     </div>
   </React.Fragment>,
   document.getElementById("root")

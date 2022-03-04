@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 import Layout from "containers/MainLayout";
 import Category from "containers/Category";
@@ -7,7 +7,7 @@ import Testimonial from "containers/Testimonial";
 import Hero from "containers/Home/Hero";
 import MostPicked from "containers/Home/MostPicked";
 
-import { resetPagePosition } from "utils/page";
+import useResetPage from "hooks/useResetPage";
 
 //TODO: Temporary
 const statistic = {
@@ -232,11 +232,8 @@ const testimony = {
 };
 
 const Home = (props) => {
+  useResetPage("Staycation | Home");
   const refMostPicked = useRef(null);
-
-  useEffect(() => {
-    resetPagePosition("Staycation | Home");
-  });
 
   return (
     <Layout {...props}>

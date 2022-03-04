@@ -46,7 +46,7 @@ const InputNumber = (props) => {
     <div className={joinClassNames}>
       <div className="input-group">
         <div className="input-group-prepend">
-          <span className="input-group-text minus" onClick={onClickMinus}>
+          <span className="input-group-text bg-danger" onClick={onClickMinus}>
             -
           </span>
         </div>
@@ -61,7 +61,7 @@ const InputNumber = (props) => {
           onChange={onChange}
         />
         <div className="input-group-append">
-          <span className="input-group-text plus" onClick={onClickPlus}>
+          <span className="input-group-text bg-success" onClick={onClickPlus}>
             +
           </span>
         </div>
