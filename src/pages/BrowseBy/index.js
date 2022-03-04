@@ -1,9 +1,9 @@
-import Layout from "containers/MainLayout";
+import Layout from "layouts/MainLayout";
 
 import useResetPage from "hooks/useResetPage";
 
 const BrowseBy = (props) => {
-  useResetPage("Staycation | Browse By");
+  useResetPage("Vacation | Browse By");
 
   return <Layout {...props}>Browse By</Layout>;
 };

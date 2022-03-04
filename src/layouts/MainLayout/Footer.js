@@ -72,7 +72,7 @@ const Footer = () => (
       </div>
       <div className="row">
         <div className="col text-center copyrights">
-          Copyright 2019 . All rights reserved . Staycation
+          Copyright 2019 . All rights reserved . Vacation
         </div>
       </div>
     </div>

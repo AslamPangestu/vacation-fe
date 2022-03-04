@@ -1,6 +1,7 @@
 import { useRef } from "react";
 
-import Layout from "containers/MainLayout";
+import Layout from "layouts/MainLayout";
+
 import Category from "containers/Category";
 import Testimonial from "containers/Testimonial";
 
@@ -232,7 +233,7 @@ const testimony = {
 };
 
 const Home = (props) => {
-  useResetPage("Staycation | Home");
+  useResetPage("Vacation | Home");
   const refMostPicked = useRef(null);
 
   return (

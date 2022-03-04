@@ -4,7 +4,22 @@ import Fade from "react-reveal/Fade";
 import Button from "components/Button";
 import Brand from "components/Brand";
 
-const Header = ({ location }) => {
+const Header = ({ location, center }) => {
+  if (center) {
+    return (
+      <Fade>
+        <header className="spacing-sm">
+          <div className="container">
+            <nav className="navbar navbar-expand-lg navbar-light">
+              <Button className="brand-text-icon mx-auto" href="" type="link">
+                Stay<span className="text-gray-900">cation.</span>
+              </Button>
+            </nav>
+          </div>
+        </header>
+      </Fade>
+    );
+  }
   const MENUS = [
     { label: "Home", path: "/" },
     { label: "Browse By", path: "/browse-by" },
@@ -48,6 +63,7 @@ Header.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }),
+  center: PropTypes.bool,
 };
 
 export default Header;

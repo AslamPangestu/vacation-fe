@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Fade from "react-reveal/Fade";
 
-import Layout from "containers/MainLayout";
+import Layout from "layouts/MainLayout";
+
 import Category from "containers/Category";
 import Testimonial from "containers/Testimonial";
 
