@@ -43,7 +43,7 @@ const InputDate = (props) => {
   };
   const displayDate = () => {
     const startDate = value.startDate ? formatDate(value.startDate) : "";
-    const endDate = value.endDate ? formatDate(value.startDate) : "";
+    const endDate = value.endDate ? formatDate(value.endDate) : "";
     return `${startDate} - ${endDate}`;
   };
 

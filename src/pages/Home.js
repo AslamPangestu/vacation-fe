@@ -1,10 +1,11 @@
 import { useRef, useEffect } from "react";
 
 import Layout from "containers/MainLayout";
+import Category from "containers/Category";
+import Testimonial from "containers/Testimonial";
+
 import Hero from "containers/Home/Hero";
 import MostPicked from "containers/Home/MostPicked";
-import Category from "containers/Home/Category";
-import Testimonial from "containers/Home/Testimonial";
 
 import { resetPagePosition } from "utils/page";
 

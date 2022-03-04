@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import Fade from "react-reveal/Fade";
 
 import Layout from "containers/MainLayout";
+import Category from "containers/Category";
+import Testimonial from "containers/Testimonial";
+
 import PageTitle from "containers/PlaceDetail/Title";
 import FeatureImages from "containers/PlaceDetail/FeatureImages";
 import Descriptions from "containers/PlaceDetail/Descriptions";
-
-import InputNumber from "components/Form/InputNumber";
+import BookingForm from "containers/PlaceDetail/BookingForm";
 
 import { resetPagePosition } from "utils/page";
 //TODO: Temporary
@@ -120,7 +122,8 @@ const data = {
         {
           _id: "asd1293uasdads1",
           name: "PSW Antasari",
-          imageUrl: "/images/treasure-1.jpg",
+          imageUrl:
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
           country: "South Korea",
           city: "Seoul Flore",
           isPopular: false,
@@ -128,7 +131,8 @@ const data = {
         {
           _id: "asd1293uasdads1",
           name: "Kuretakeso",
-          imageUrl: "/images/treasure-2.jpg",
+          imageUrl:
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
           country: "South Korea",
           city: "Seoul Flore",
           isPopular: false,
@@ -136,7 +140,8 @@ const data = {
         {
           _id: "asd1293uasdads1",
           name: "Arya Duta",
-          imageUrl: "/images/treasure-3.jpg",
+          imageUrl:
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
           country: "South Korea",
           city: "Seoul Flore",
           isPopular: true,
@@ -144,7 +149,8 @@ const data = {
         {
           _id: "asd1293uasdads1",
           name: "Grand Dhika",
-          imageUrl: "/images/treasure-4.jpg",
+          imageUrl:
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
           country: "South Korea",
           city: "Seoul Flore",
           isPopular: false,
@@ -154,7 +160,8 @@ const data = {
   ],
   testimonial: {
     _id: "asd1293uasdads1",
-    imageUrl: "/images/testimonial-detailspage.jpg",
+    imageUrl:
+      "https://images.unsplash.com/photo-1506836467174-27f1042aa48c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
     name: "Happy Family",
     rate: 4.25,
     content:
@@ -165,7 +172,6 @@ const data = {
 };
 
 const PlaceDetail = (props) => {
-  const [countNight, setCountNight] = useState("1");
   // eslint-disable-next-line no-unused-vars
   const [detailData, setDetailData] = useState(data);
   // eslint-disable-next-line no-unused-vars
@@ -175,13 +181,13 @@ const PlaceDetail = (props) => {
     { title: "Detail", link: "" },
   ]);
 
-  const onChangeNight = (event) => {
-    setCountNight(event.target.value);
-  };
-
   useEffect(() => {
     resetPagePosition(detailData.name);
   });
+
+  const onStartBooking = () => {
+    console.log("CALL");
+  };
 
   return (
     <Layout {...props}>
@@ -195,18 +201,19 @@ const PlaceDetail = (props) => {
             </Fade>
           </div>
           <div className="col-5">
-            <Fade bottom>Booking Form</Fade>
+            <Fade bottom>
+              <BookingForm
+                itemDetails={detailData}
+                onStartBooking={onStartBooking}
+              />
+            </Fade>
           </div>
         </div>
       </section>
-      <InputNumber
-        value={countNight}
-        suffix="night"
-        name="night"
-        isSuffixPlural
-        max={30}
-        onChange={onChangeNight}
-      />
+      {detailData.categories.map((item, index) => (
+        <Category title={item.name} data={item.items} key={index} />
+      ))}
+      <Testimonial data={detailData.testimonial} />
     </Layout>
   );
 };

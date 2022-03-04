@@ -16,7 +16,7 @@ const history = createBrowserHistory({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <div className="app">
       <Router history={history} basename={process.env.PUBLIC_URL}>
         <Switch>
@@ -25,7 +25,7 @@ ReactDOM.render(
         </Switch>
       </Router>
     </div>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById("root")
 );
 

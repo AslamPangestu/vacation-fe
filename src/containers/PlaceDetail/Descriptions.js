@@ -34,7 +34,7 @@ const Description = ({ data }) => {
                     alt={feature.name}
                   />{" "}
                   <span>{feature.qty}</span>{" "}
-                  <span className="text-gray-500 font-weight-light">
+                  <span className="text-primary-light font-weight-light">
                     {feature.name}
                   </span>
                 </div>
