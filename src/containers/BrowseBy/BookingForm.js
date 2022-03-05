@@ -89,11 +89,9 @@ const BookingForm = ({ itemDetails, onStartBooking }) => {
         style={{ marginBottom: 40 }}
       >
         You will pay{" "}
-        <span className="text-gray-900">
-          ${itemDetails.price * duration} USD
-        </span>{" "}
+        <span className="text-dark">${itemDetails.price * duration} USD</span>{" "}
         per{" "}
-        <span className="text-gray-900">
+        <span className="text-dark">
           {duration} {itemDetails.unit}
         </span>
       </h6>

@@ -4,6 +4,7 @@
     background-color: $white;
 
     .input-group-text {
+      pointer-events: none;
       border: 0;
       cursor: pointer;
       color: $white;

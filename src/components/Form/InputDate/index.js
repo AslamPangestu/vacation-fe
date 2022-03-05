@@ -50,7 +50,7 @@ const InputDate = (props) => {
   return (
     <div ref={refDate} className={joinClassNames}>
       <div className="input-group">
-        <div className="input-group-prepend bg-gray-900">
+        <div className="input-group-prepend bg-dark">
           <span className="input-group-text">
             <img src={IcCalendar} alt="icon calendar" />
           </span>
