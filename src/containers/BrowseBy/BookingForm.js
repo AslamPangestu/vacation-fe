@@ -16,18 +16,6 @@ const BookingForm = ({ itemDetails, onStartBooking }) => {
     key: "selection",
   });
 
-  const onChangeDate = (event) => {
-    const { name, value } = event.target;
-    if (name === "duration") {
-      setDuration(value);
-      return;
-    }
-    if (name === "selectedDate") {
-      setSelectedDate(value);
-      return;
-    }
-  };
-
   // Update onset duration
   useEffect(() => {
     const startDate = new Date(selectedDate.startDate);
@@ -72,14 +60,14 @@ const BookingForm = ({ itemDetails, onStartBooking }) => {
         max={30}
         suffix="night"
         isSuffixPlural
-        onChange={onChangeDate}
+        onChange={({ target }) => setDuration(target.value)}
         name="duration"
         value={duration}
       />
 
       <label htmlFor="selectedDate">Pick a date</label>
       <InputDate
-        onChange={onChangeDate}
+        onChange={({ target }) => setSelectedDate(target.value)}
         name="selectedDate"
         value={selectedDate}
       />

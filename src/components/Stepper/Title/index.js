@@ -17,7 +17,7 @@ const Title = ({ data, current }) => {
 
 Title.propTypes = {
   data: PropTypes.object,
-  current: PropTypes.number,
+  current: PropTypes.string,
 };
 
 export default Title;

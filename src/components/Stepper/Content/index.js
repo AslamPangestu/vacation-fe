@@ -8,7 +8,7 @@ const Content = ({ data, current }) => (
 
 Content.propTypes = {
   data: PropTypes.object,
-  current: PropTypes.number,
+  current: PropTypes.string,
 };
 
 export default Content;

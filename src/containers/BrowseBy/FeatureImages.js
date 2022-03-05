@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Fade from "react-reveal/Fade";
 
-import { validURL } from "utils/string";
+import { getImageSource } from "utils/string";
 
 const FeatureImages = ({ data }) => {
   const imageClass = (index) => {
@@ -11,12 +11,6 @@ const FeatureImages = ({ data }) => {
       return `${defaultClass} column-7 row-2`;
     }
     return `${defaultClass} column-5 row-1`;
-  };
-  const imageSource = (value) => {
-    if (validURL(value)) {
-      return value;
-    }
-    return `${process.env.REACT_APP_HOST}/${value}`;
   };
 
   return (
@@ -30,7 +24,7 @@ const FeatureImages = ({ data }) => {
                   <figure className="img-wrapper">
                     <img
                       className="img-cover"
-                      src={imageSource(item.url)}
+                      src={getImageSource(item.url)}
                       alt={item._id}
                     />
                   </figure>

@@ -175,14 +175,12 @@ const data = {
 
 const DetailBrowseBy = (props) => {
   // eslint-disable-next-line no-unused-vars
-  const [detailData, setDetailData] = useState(data);
-  // eslint-disable-next-line no-unused-vars
   const [breadcrumbItems, setBreadcrumbsItems] = useState([
     { title: "Home", link: "/" },
     { title: "Product", link: "/" },
     { title: "Detail", link: "" },
   ]);
-  useResetPage(detailData.name);
+  useResetPage(data.name);
 
   const onStartBooking = () => {
     console.log("CALL");
@@ -190,29 +188,26 @@ const DetailBrowseBy = (props) => {
 
   return (
     <Layout {...props}>
-      <PageTitle data={detailData} breadcrumbs={breadcrumbItems} />
-      <FeatureImages data={detailData.imageUrls} />
+      <PageTitle data={data} breadcrumbs={breadcrumbItems} />
+      <FeatureImages data={data.imageUrls} />
       <section className="container">
         <div className="row">
           <div className="col-7 pr-5">
             <Fade bottom>
-              <Descriptions data={detailData} />
+              <Descriptions data={data} />
             </Fade>
           </div>
           <div className="col-5">
             <Fade bottom>
-              <BookingForm
-                itemDetails={detailData}
-                onStartBooking={onStartBooking}
-              />
+              <BookingForm itemDetails={data} onStartBooking={onStartBooking} />
             </Fade>
           </div>
         </div>
       </section>
-      {detailData.categories.map((item, index) => (
+      {data.categories.map((item, index) => (
         <Category title={item.name} data={item.items} key={index} />
       ))}
-      <Testimonial data={detailData.testimonial} />
+      <Testimonial data={data.testimonial} />
     </Layout>
   );
 };

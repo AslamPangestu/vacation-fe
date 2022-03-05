@@ -1,17 +1,11 @@
 import PropTypes from "prop-types";
 import ReactHtmlParser from "react-html-parser";
 
-import { validURL } from "utils/string";
+import { getImageSource } from "utils/string";
 
 const Description = ({ data }) => {
   const { features, description } = data;
   const haveFeature = features.length !== 0;
-  const imageSource = (value) => {
-    if (validURL(value)) {
-      return value;
-    }
-    return `${process.env.REACT_APP_HOST}${value}`;
-  };
 
   return (
     <main>
@@ -30,7 +24,7 @@ const Description = ({ data }) => {
                   <img
                     width="38"
                     className="d-block mb-2"
-                    src={imageSource(feature.imageUrl)}
+                    src={getImageSource(feature.imageUrl)}
                     alt={feature.name}
                   />{" "}
                   <span>{feature.qty}</span>{" "}

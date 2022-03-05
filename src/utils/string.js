@@ -16,3 +16,10 @@ export const formatNumber = (val) => {
   const formatType = new Intl.NumberFormat("id-ID");
   return formatType.format(val);
 };
+
+export const getImageSource = (val) => {
+  if (validURL(val)) {
+    return val;
+  }
+  return `${process.env.REACT_APP_HOST}${val}`;
+};

@@ -18,13 +18,20 @@ const InputFile = (props) => {
   const joinInputClassNames = ["form-control", inputClassName].join(" ");
 
   const refInputFile = useRef(null);
+  const getFileName = () => {
+    if (fileName.length === 0) {
+      return "";
+    }
+    return fileName[0].name;
+  };
 
-  const onChange = (event) => {
-    setFileName(event.target.value);
+  const onChange = ({ target }) => {
+    const { name, files } = target;
+    setFileName(files);
     props.onChange({
       target: {
-        name: event.target.name,
-        value: event.target.files,
+        name,
+        value: files,
       },
     });
   };
@@ -43,12 +50,11 @@ const InputFile = (props) => {
           name={name}
           className="d-none"
           type="file"
-          value={fileName}
           onChange={onChange}
         />
         <input
           onClick={() => refInputFile.current.click()}
-          defaultValue={fileName}
+          value={getFileName()}
           placeholder={placeholder}
           readOnly
           className={joinInputClassNames}
@@ -70,7 +76,7 @@ InputFile.defaultProps = {
 InputFile.propTypes = {
   name: PropTypes.string.isRequired,
   accept: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
   onChange: PropTypes.func.isRequired,
   prepend: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   append: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
