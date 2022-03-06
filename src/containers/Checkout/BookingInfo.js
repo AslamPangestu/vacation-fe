@@ -56,6 +56,7 @@ const BookingInfo = (props) => {
                 name="firstName"
                 value={data.firstName}
                 onChange={onChangeFirstName}
+                placeholder="Input your first name"
               />
 
               <label htmlFor="lastName">Last Name</label>
@@ -64,6 +65,7 @@ const BookingInfo = (props) => {
                 name="lastName"
                 value={data.lastName}
                 onChange={onChangeLastName}
+                placeholder="Input your last name"
               />
 
               <label htmlFor="email">Email Address</label>
@@ -73,6 +75,7 @@ const BookingInfo = (props) => {
                 type="email"
                 value={data.email}
                 onChange={onChangeEmail}
+                placeholder="Input your email"
               />
 
               <label htmlFor="phone">Phone Number</label>
@@ -82,6 +85,7 @@ const BookingInfo = (props) => {
                 type="tel"
                 value={data.phone}
                 onChange={onChangePhone}
+                placeholder="Input your phone number"
               />
             </Fade>
           </div>

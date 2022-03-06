@@ -21,9 +21,9 @@ const TestComponent = () => {
 
 const setup = () => {
   const { container } = render(<TestComponent />);
-  const input = container.querySelector(`input.form-control[name='value']`);
-  const plusButton = container.querySelector(`span.input-group-text.plus`);
-  const minusButton = container.querySelector(`span.input-group-text.minus`);
+  const input = container.querySelector("input.form-control[name='value']");
+  const plusButton = container.querySelector("span.input-group-text.plus");
+  const minusButton = container.querySelector("span.input-group-text.minus");
 
   return { input, plusButton, minusButton };
 };

@@ -43,6 +43,7 @@ const InputText = (props) => {
       props.onChange(target);
     }
   };
+
   return (
     <div className={joinClassNames}>
       <div className="input-group">

@@ -289,7 +289,7 @@ const Checkout = (props) => {
 
   return (
     <Layout {...props}>
-      <Stepper steps={steps} initialStep="payment">
+      <Stepper steps={steps} initialStep="bookingInformation">
         {(prevStep, nextStep, currentStep, steps) => (
           <>
             <Step
@@ -302,72 +302,74 @@ const Checkout = (props) => {
 
             <Content data={steps} current={currentStep} />
 
-            {currentStep === "bookingInformation" && (
-              <Controller>
-                {doneBookingInfoForm && (
-                  <Fade>
-                    <Button
-                      className="btn bg-primary text-white mb-3 w-100"
-                      type="button"
-                      block
-                      elevated
-                      onClick={nextStep}
-                    >
-                      Continue to Book
-                    </Button>
-                  </Fade>
-                )}
-                <Button
-                  className="btn bg-light text-primary-light w-100"
-                  type="link"
-                  block
-                  link={`/browse-by/${transaction._id}`}
-                >
-                  Cancel
-                </Button>
-              </Controller>
-            )}
+            <Controller>
+              {currentStep === "bookingInformation" && (
+                <>
+                  {doneBookingInfoForm && (
+                    <Fade>
+                      <Button
+                        className="btn bg-primary text-white mb-3 w-100"
+                        type="button"
+                        block
+                        elevated
+                        onClick={nextStep}
+                      >
+                        Continue to Book
+                      </Button>
+                    </Fade>
+                  )}
+                  <Button
+                    className="btn bg-light text-primary-light w-100"
+                    type="link"
+                    block
+                    link={`/browse-by/${transaction._id}`}
+                  >
+                    Cancel
+                  </Button>
+                </>
+              )}
 
-            {currentStep === "payment" && (
-              <Controller>
-                {donePaymentForm && (
-                  <Fade>
-                    <Button
-                      className="btn bg-primary text-white mb-3 w-100"
-                      type="button"
-                      block
-                      elevated
-                      onClick={() => onSubmit(nextStep)}
-                    >
-                      Continue to Book
-                    </Button>
-                  </Fade>
-                )}
-                <Button
-                  className="btn bg-light text-primary-light w-100"
-                  type="button"
-                  block
-                  onClick={prevStep}
-                >
-                  Back
-                </Button>
-              </Controller>
-            )}
+              {currentStep === "payment" && (
+                <>
+                  {donePaymentForm && (
+                    <Fade>
+                      <Button
+                        className="btn bg-primary text-white mb-3 w-100"
+                        type="button"
+                        block
+                        elevated
+                        onClick={() => onSubmit(nextStep)}
+                      >
+                        Continue to Book
+                      </Button>
+                    </Fade>
+                  )}
+                  <Button
+                    className="btn bg-light text-primary-light w-100"
+                    type="button"
+                    block
+                    onClick={prevStep}
+                  >
+                    Back
+                  </Button>
+                </>
+              )}
 
-            {currentStep === "completed" && (
-              <Controller>
-                <Button
-                  className="btn bg-primary text-white w-100"
-                  style={{ marginTop: 40, paddingTop: 12 }}
-                  type="link"
-                  block
-                  elevated
-                  link="/"
-                >
-                  Back to Home
-                </Button>
-              </Controller>
-            )}
+              {currentStep === "completed" && (
+                <>
+                  <Button
+                    className="btn bg-primary text-white w-100"
+                    style={{ marginTop: 40, paddingTop: 12 }}
+                    type="link"
+                    block
+                    elevated
+                    link="/"
+                  >
+                    Back to Home
+                  </Button>
+                </>
+              )}
+            </Controller>
           </>
         )}
       </Stepper>

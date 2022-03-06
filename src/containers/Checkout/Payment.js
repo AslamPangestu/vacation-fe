@@ -61,6 +61,7 @@ const Payment = (props) => {
                 name="proofPayment"
                 value={data.proofPayment}
                 onChange={onChangeProofOfPayment}
+                placeholder="Select file"
               />
 
               <label htmlFor="bankName">Asal Bank</label>
@@ -70,6 +71,7 @@ const Payment = (props) => {
                 type="text"
                 value={data.bankName}
                 onChange={onChangeBankName}
+                placeholder="Input your sender bank"
               />
 
               <label htmlFor="bankHolder">Nama Pengirim</label>
@@ -79,6 +81,7 @@ const Payment = (props) => {
                 type="text"
                 value={data.bankHolder}
                 onChange={onChangeBankHolder}
+                placeholder="Input your holder bank name"
               />
             </Fade>
           </div>

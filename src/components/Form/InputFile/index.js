@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import "./index.scss";
 
 const InputFile = (props) => {
-  const [fileName, setFileName] = useState("");
   const {
     placeholder,
     name,
@@ -16,6 +15,7 @@ const InputFile = (props) => {
   } = props;
   const joinClassNames = ["input-file mb-3", className].join(" ");
   const joinInputClassNames = ["form-control", inputClassName].join(" ");
+  const [fileName, setFileName] = useState("");
 
   const refInputFile = useRef(null);
   const getFileName = () => {

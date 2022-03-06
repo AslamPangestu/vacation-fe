@@ -45,3 +45,13 @@ it("Should show datepicker dialog when click input field", () => {
 
   expect(datePickerWrapper).toBeInTheDocument();
 });
+
+it("Should hidden datepicker dialog when click outside input field", () => {
+  const { container, input, wrapper } = setup();
+
+  fireEvent.click(input, { button: 1 });
+  const datePickerWrapper = container.querySelector(`.date-range-wrapper`);
+  fireEvent.click(wrapper, { button: 1 });
+
+  expect(datePickerWrapper).toBeInTheDocument();
+});
